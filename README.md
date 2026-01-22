@@ -1,81 +1,74 @@
-# Projeto OEE - Dashboard de Eficiência Global de Equipamentos
+# 🏭 OEE Matrix Intelligence - Sistema de Monitoramento Industrial v6.0
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.20+-red.svg)](https://streamlit.io/)
+[![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey.svg)](https://www.sqlite.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-**Dashboard vivo e simulador de OEE (Overall Equipment Effectiveness)** para monitoramento industrial em tempo real. Calcula e exibe métricas chave de produção: Disponibilidade Operacional, Performance de Velocidade, Qualidade de Produção e Eficiência Global (OEE), com gráficos interativos, linha do tempo e registro manual.
+## 📊 Sobre o Projeto
+O **OEE Matrix Intelligence** é uma solução de Business Intelligence focada em **Indústria 4.0**. O sistema automatiza o cálculo do Índice de Eficiência Global (OEE), transformando dados operacionais em insights estratégicos para tomada de decisão no chão de fábrica.
 
-### Visão Geral
-Este projeto transforma dados de produção em um painel de controle moderno e interativo usando **Streamlit**. Ideal para fábricas, manutenção industrial ou simulações de OEE.
+Diferente de planilhas convencionais, este projeto integra **persistência de dados**, **análise de impacto financeiro** e um **simulador de telemetria IoT** para monitoramento contínuo.
 
-- **Modo Dashboard Vivo** — Monitoramento em tempo real com telemetria dos últimos registros
-- **Modo Simulação** — Ative para testar cenários alterando tempos, paradas, produção e defeitos
-- **Cálculo OEE** baseado no padrão mundial:  
-  **OEE = Disponibilidade × Performance × Qualidade**  
-  (Exemplo: 93.2% × 90.4% × 95.6% = 80.5% — valores reais do seu screenshot)
 
-### Features Principais
-- **Métricas em Cards** (alto contraste, design industrial):  
-  - Disponibilidade Operacional  
-  - Performance de Velocidade  
-  - Qualidade de Produção  
-  - Eficiência Global (OEE)
-- **Linha do Tempo em Tempo Real** — Gráfico Plotly com os últimos 20 registros (atualiza dinamicamente)
-- **Registro Manual** — Inputs para:  
-  - Tempo de Turno (min)  
-  - Tempo de Parada (min)  
-  - Produção Total (peças)  
-  - Peças Defeituosas  
-  - Velocidade Meta (peças/min)
-- **Persistência** — Dados salvos em SQLite (`oee_simulation.db`)
-- **Exportação** — Geração de relatórios em PDF (usando FPDF)
-- **UI Adaptável** — Tema escuro, layout wide, cards translúcidos com bordas de destaque
-- **Toggle Simulação** — Ative/desative modo de teste sem afetar dados reais
 
-### Captura de Tela
-![Dashboard OEE em Tempo Real](https://via.placeholder.com/1200x700/1e1e1e/00ff9f?text=Dashboard+OEE+Exemplo)  
-*(Atualize esta imagem: tire um print do seu app rodando e suba como `screenshot.png` no repo)*
+---
 
-### Tecnologias Utilizadas
-- **Frontend/Backend**: Streamlit (rápido e interativo)
-- **Dados**: Pandas (manipulação), SQLite3 (persistência local)
-- **Visualizações**: Plotly Express (gráficos interativos)
-- **Exportação**: FPDF (relatórios PDF)
-- **Outros**: datetime, time, random (para simulações)
+## 🚀 Funcionalidades Principais
 
-### Como Instalar e Rodar Localmente
-1. Clone o repositório:
+* **⚡ Modo Simulação IoT:** Motor de simulação em tempo real que mimetiza sensores de máquinas, gerando dados automáticos para testes de telemetria.
+* **📈 Dashboard Dinâmico:** Visualização interativa dos 3 pilares:
+    * **Disponibilidade Operacional:** Tempo de máquina ativa vs. paradas planejadas.
+    * **Performance de Velocidade:** Ritmo de produção vs. capacidade máxima.
+    * **Qualidade de Produção:** Índice de peças conformes vs. refugo.
+* **💰 Gestão de Perdas Financeiras:** Conversão automática de tempo de parada em prejuízo financeiro (R$).
+* **📋 Registro de Causa Raiz:** Categorização de paradas (Manutenção, Setup, Falta de Material) para análise de Pareto.
+* **📥 Central de Exportação:**
+    * **Excel (.xlsx):** Relatório completo formatado para análise de dados.
+    * **PDF:** Relatório de auditoria profissional formatado para diretoria.
+
+---
+
+## 🏗️ Estrutura do Sistema (Abas)
+
+O sistema foi organizado em abas para garantir uma experiência de usuário (UX) limpa e profissional:
+
+1.  **🚀 Dashboard Vivo:** Monitoramento instantâneo com gráficos de linha e gauges (velocímetros).
+2.  **📋 Consulta de Histórico:** Tabela detalhada sem abreviações, com formatação condicional.
+3.  **📉 Análise Técnica:** Comparativo visual de desempenho entre os turnos.
+4.  **📥 Central de Exportação:** Área dedicada para download de relatórios.
+
+
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Linguagem:** Python 3.9+
+* **Interface:** Streamlit
+* **Banco de Dados:** SQLite3 (Persistência de logs)
+* **Gráficos:** Plotly Express & Graph Objects
+* **Exportação:** FPDF (PDF) & XlsxWriter (Excel)
+
+---
+
+## ⚙️ Como Instalar e Rodar
+
+1. **Clone este repositório:**
    ```bash
-   git clone https://github.com/Lucas-Martins920/projeto_oee.git
+   git clone [https://github.com/Lucas-Martins920/projeto_oee.git](https://github.com/Lucas-Martins920/projeto_oee.git)
    cd projeto_oee
-2. Crie e ative um ambiente virtual (recomendado):
-  python -m venv venv
-source venv/bin/activate   # Linux/Mac
-# ou venv\Scripts\activate   # Windows
+
+   Crie um ambiente virtual (Recomendado):
+
+2. Crie um ambiente virtual (Recomendado):
+python -m venv venv
+source venv/bin/activate  # No Windows use: venv\Scripts\activate
 
 3. Instale as dependências:
-   pip install -r requirements.txt
-(Se não tiver o arquivo, crie com: pip freeze > requirements.txt após instalar manualmente: streamlit pandas plotly fpdf)
+  pip install -r requirements.txt
 
-4. Rode o app:
+4. Execute a aplicação:
    streamlit run app.py
 
-
-Como Contribuir
-
-+ Fork o repo
-+ Crie uma branch: git checkout -b feature/nova-metrica
-+ Commit suas mudanças: git commit -m "Add nova métrica X"
-+ Push: git push origin feature/nova-metrica
-+ Abra um Pull Request
-
-
-5. Roadmap / Ideias Futuras
-
-+ Integração com CSV/Excel para upload de dados reais
-+ Autenticação simples (para multi-usuários)
-+ Alertas visuais quando OEE < meta
-+ Histórico completo com filtros por data/turno
-+ Deploy no Streamlit Community Cloud ou Railway
-+ Exportação para Excel + email automático
+Lógica de Negócio (OEE) O sistema segue o padrão mundial de produtividade:$OEE = \text{Disponibilidade} \times \text{Performance} \times \text{Qualidade}$A interface foi desenhada com um estilo "Glassmorphism Industrial", garantindo alto contraste tanto em Modo Claro quanto em Modo Escuro, facilitando a leitura em diferentes dispositivos de fábrica.
